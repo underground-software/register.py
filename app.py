@@ -55,9 +55,8 @@ def handle_post_request(env, start_response):
 	'''
 
 def application(env, start_response):
-	page=''
-#	with open(ROOT + '/data/header') as header:
-#		page = header.read();
+	with open(ROOT + '/data/header') as header:
+		page = header.read();
 	#only set for post request
 	if 'CONTENT_LENGTH' in env and env['CONTENT_LENGTH']:
 		page += handle_post_request(env, start_response)
